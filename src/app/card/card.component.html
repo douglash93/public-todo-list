@@ -1,33 +1,31 @@
-<div class="col-lg-3 mb-4">
-  <div class="card" style="width: 18rem">
-    <div class="card-body">
-      <h5 class="card-title">{{ card?.name }}</h5>
-      <h6 class="card-subtitle mb-2 text-muted font-weight-normal">
-        {{ card?.description }}
-      </h6>
-      <p class="card-text">{{ card?.detail }}</p>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{ card?.name }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted font-weight-normal">
+      {{ card?.description }}
+    </h6>
+    <p class="card-text">{{ card?.detail }}</p>
 
-      <app-subtasks
-        [cardIndex]="cardIndex"
-        [tasks]="card?.tasks"
-        (updateSubTask)="updateSubTask($event)"
-      ></app-subtasks>
+    <app-subtasks
+      [cardIndex]="cardIndex"
+      [tasks]="card?.tasks"
+      (updateSubTask)="updateSubTask($event)"
+    ></app-subtasks>
 
-      <app-btn-edit-card
-        [style]="'btn btn-sm btn-outline-primary'"
-        [label]="'Editar'"
-        [icon]="'fa fa-pencil'"
-        [card]="card"
-        (refreshCard)="updateCard($event)"
-      ></app-btn-edit-card>
-      <app-btn-remove-card
-        [style]="'btn btn-sm btn-danger ml-2'"
-        [label]="'Remover'"
-        [icon]="'fa fa-trash'"
-        [cardName]="card?.name"
-        [cardIndex]="cardIndex"
-        (deleteCard)="deleteCard($event)"
-      ></app-btn-remove-card>
-    </div>
+    <app-btn-edit-card
+      [style]="'btn btn-sm btn-outline-primary'"
+      [label]="'Editar'"
+      [icon]="'fa fa-pencil'"
+      [card]="card"
+      (refreshCard)="updateCard($event)"
+    ></app-btn-edit-card>
+    <app-btn-remove-card
+      [style]="'btn btn-sm btn-danger ml-2'"
+      [label]="'Remover'"
+      [icon]="'fa fa-trash'"
+      [cardName]="card?.name"
+      [cardIndex]="cardIndex"
+      (deleteCard)="deleteCard($event)"
+    ></app-btn-remove-card>
   </div>
 </div>
