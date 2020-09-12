@@ -49,6 +49,8 @@ export class BtnNewCardComponent implements OnInit {
   }
 
   openModal(template: TemplateRef<any>) {
+    this.subTasks = [];
+    this.frmNew.reset();
     this.modalRef = this.modalService.show(template);
   }
 
