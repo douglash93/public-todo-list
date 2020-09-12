@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter, TemplateRef } from '@angular/core';
-import CardModel from 'src/app/card/card.model';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({

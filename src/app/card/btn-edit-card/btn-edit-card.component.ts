@@ -1,16 +1,22 @@
-import { Component, OnInit, Input, Output, EventEmitter, TemplateRef } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, Validators, FormsModule } from '@angular/forms';
-import CardModel from 'src/app/card/card.model';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import TaskModel from '../task.model';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  TemplateRef,
+} from "@angular/core";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import CardModel from "src/app/card/card.model";
+import { BsModalRef, BsModalService } from "ngx-bootstrap/modal";
+import TaskModel from "../task.model";
 
 @Component({
-  selector: 'app-btn-edit-card',
-  templateUrl: './btn-edit-card.component.html',
-  styleUrls: ['./btn-edit-card.component.scss']
+  selector: "app-btn-edit-card",
+  templateUrl: "./btn-edit-card.component.html",
+  styleUrls: ["./btn-edit-card.component.scss"],
 })
 export class BtnEditCardComponent implements OnInit {
-
   @Input() style: String;
   @Input() label: String;
   @Input() icon: String;
@@ -23,7 +29,7 @@ export class BtnEditCardComponent implements OnInit {
 
   constructor(
     private modalService: BsModalService,
-    private formBuilder: FormBuilder,
+    private formBuilder: FormBuilder
   ) {}
 
   ngOnInit() {
@@ -32,14 +38,14 @@ export class BtnEditCardComponent implements OnInit {
       name: [null, Validators.required],
       description: [null, Validators.required],
       detail: [null],
-      tasks: [Array]
+      tasks: [Array],
     });
   }
 
   get f() {
     return this.frmEdit.controls;
   }
-  
+
   openModal(template: TemplateRef<any>) {
     this.frmEdit.patchValue(this.card);
     console.log(this.frmEdit.getRawValue());
@@ -48,12 +54,11 @@ export class BtnEditCardComponent implements OnInit {
 
   updateCard(event) {
     this.modalRef.hide();
-    const card = (this.frmEdit.getRawValue() as CardModel);
+    const card = this.frmEdit.getRawValue() as CardModel;
     this.refreshCard.emit(card);
   }
 
   updateSubTask(tasks: TaskModel[]) {
     this.card.tasks = tasks;
   }
-
 }

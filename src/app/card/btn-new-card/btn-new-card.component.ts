@@ -8,10 +8,8 @@ import {
 } from "@angular/core";
 import {
   FormGroup,
-  FormControl,
   FormBuilder,
   Validators,
-  FormsModule,
 } from "@angular/forms";
 import CardModel from "src/app/card/card.model";
 import { BsModalRef, BsModalService } from "ngx-bootstrap/modal";
